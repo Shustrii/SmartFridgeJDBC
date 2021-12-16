@@ -19,6 +19,10 @@
         <td><a href="/SmartFridgeJDBC_war/recipe/${recipeTables.id}">${recipeTables.recipe}</a></td>
     </tr>
     </c:forEach>
+        <form:form method="post" modelAttribute="newRecipe" action="addNewRecipe">
+        <form:input path="recipe"/>
+        <input type="submit"/>
+        </form:form>
 
 </table>
 </div>

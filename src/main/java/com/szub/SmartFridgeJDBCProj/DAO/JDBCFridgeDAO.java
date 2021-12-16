@@ -30,6 +30,7 @@ public class JDBCFridgeDAO implements FridgeDAO{
     private DeleteProductsFromRecipe deleteProducts;
     private DeleteProductFromFridge deleteProductFromFridge;
     private InsertProductInFridge insertProductInFridge;
+    private InsertNewRecipe insertNewRecipe;
 
 
     @Override
@@ -117,7 +118,9 @@ public class JDBCFridgeDAO implements FridgeDAO{
 
     @Override
     public void insertNewRecipe(RecipeTable recipeTable) {
-
+        Map<String, Object> paramMap = new HashMap<String, Object>();
+        paramMap.put("recipes", recipeTable.getRecipe());
+        insertNewRecipe.updateByNamedParam(paramMap);
     }
 
 
@@ -153,6 +156,7 @@ public class JDBCFridgeDAO implements FridgeDAO{
         this.deleteProducts = new DeleteProductsFromRecipe(dataSource);
         this.deleteProductFromFridge = new DeleteProductFromFridge(dataSource);
         this.insertProductInFridge = new InsertProductInFridge(dataSource);
+        this.insertNewRecipe = new InsertNewRecipe(dataSource);
     }
 
 
