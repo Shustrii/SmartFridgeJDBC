@@ -20,4 +20,5 @@ public interface FridgeDAO {
     void insertProductInFridge(FridgeTable fridgeTable);
     List<ProductTable> findProductNotInFridge();
     List<Order> findProductForOrder(Long recipeId);
+    void insertNewRecipe(RecipeTable recipeTable);
 }
