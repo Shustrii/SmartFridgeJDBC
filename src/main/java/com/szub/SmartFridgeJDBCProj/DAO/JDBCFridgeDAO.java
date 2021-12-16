@@ -115,6 +115,11 @@ public class JDBCFridgeDAO implements FridgeDAO{
         return (List<Order>) namedParameterJdbcTemplate.query(sql,namedParam, new OrderProducts());
     }
 
+    @Override
+    public void insertNewRecipe(RecipeTable recipeTable) {
+
+    }
+
 
     @Override
     public List<ProductInRecipe> findProductsForRecipe(Long recipId) {
