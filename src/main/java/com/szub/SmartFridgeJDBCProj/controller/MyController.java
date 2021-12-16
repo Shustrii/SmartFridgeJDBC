@@ -51,6 +51,7 @@ public class MyController {
         model.addAttribute("product", new ProductInRecipe());
         model.addAttribute("mainRecipe", recipe);
         model.addAttribute("productTables",productTables);
+        model.addAttribute("newRecipe", new RecipeTable());
 
         return "recipe";
     }
@@ -67,7 +68,14 @@ public class MyController {
         model.addAttribute("product", new ProductInRecipe());
         model.addAttribute("productTables", products);
         model.addAttribute("productNotInRecipe",productNotInRecipe);
+        model.addAttribute("newRecipe", new RecipeTable());
         return "recipe";
+    }
+    @RequestMapping("/addNewRecipe")
+    public String addNewRecipe(@ModelAttribute RecipeTable recipeTable, Model model){
+        System.out.println("New recipe created");
+        fridgeDAO.insertNewRecipe(recipeTable);
+        return "index";
     }
 
     @RequestMapping(value = "/addRecipeProduct", method = RequestMethod.POST)
